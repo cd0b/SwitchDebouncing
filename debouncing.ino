@@ -6,7 +6,7 @@ class debouncer {
     unsigned long prev_signal_time{0};
 
   public:
-    debouncer(unsigned long latency = 100): debounce_latency {latency} {}
+    explicit debouncer(unsigned long latency = 100): debounce_latency {latency} {}
     
     int debounce(int current_signal) {
 
@@ -41,7 +41,7 @@ class controller {
   #define UNREADABLE false
   
   public:
-    controller(int in_pin, int out_pin, bool signal_debounce = true): 
+    explicit controller(int in_pin, int out_pin, bool signal_debounce = true): 
       in_pin {in_pin}, out_pin{out_pin}, signal_debounce {signal_debounce} {}
 
     void update() {
